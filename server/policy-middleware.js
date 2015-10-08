@@ -118,7 +118,8 @@ function proxyPolicyMapper(map, policy, params) {
 }
 
 transpilePoliciesToMiddleware.policyToMiddlewareMapping = {
-  auth: 'loopback-component-oauth2#authenticate',
+  //auth: 'loopback-component-oauth2#authenticate',
+  auth: 'uas',
   proxy: proxyPolicyMapper,
   reverseProxy: proxyPolicyMapper,
   rateLimiting: './middleware/rate-limiting-policy',

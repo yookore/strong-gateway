@@ -1,0 +1,542 @@
+{
+  "mappings": [
+    {
+      "name": "all-apis",
+      "verb": "ALL",
+      "endpoint": "^/api/(.*)$",
+      "pipelineId": "default-api-pipeline"
+    },
+    {
+      "name": "local-protected-resource",
+      "verb": "ALL",
+      "endpoint": "^/protected/(.*)$",
+      "pipelineId": "local-protected-resource-pipeline"
+    },
+    {
+      "name": "note-api",
+      "endpoint": "/api/notes",
+      "pipelineId": "note-api-pipeline"
+    },
+    {
+      "name": "idp",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(idp.*)(:\\d*)?",
+      "pipelineId": "idp-pipeline"
+    },
+    {
+      "name": "uas",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(idp.*)(:\\d*)?",
+      "pipelineId": "uas-pipeline"
+    },
+    {
+      "name": "groups",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(groups.*)(:\\d*)?",
+      "pipelineId": "groups-pipeline"
+    },
+    {
+      "name": "videos",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(videos.*)(:\\d*)?",
+      "pipelineId": "videos-pipeline"
+    },
+    {
+      "name": "likes",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(likes.*)(:\\d*)?",
+      "pipelineId": "likes-pipeline"
+    },
+    {
+      "name": "upm",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(upm.*)(:\\d*)?",
+      "pipelineId": "upm-pipeline"
+    },
+    {
+      "name": "blogpost",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(blogpost.*)(:\\d*)?",
+      "pipelineId": "blogpost-pipeline"
+    },
+    {
+      "name": "fss",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(fss.*)(:\\d*)?",
+      "pipelineId": "fss-pipeline"
+    },
+    {
+      "name": "audio",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(audio.*)(:\\d*)?",
+      "pipelineId": "audio-pipeline"
+    },
+    {
+      "name": "pages",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(pages.*)(:\\d*)?",
+      "pipelineId": "pages-pipeline"
+    },
+    {
+      "name": "comment",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(comment.*)(:\\d*)?",
+      "pipelineId": "comment-pipeline"
+    },
+    {
+      "name": "statusupdate",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(statusupdate.*)(:\\d*)?",
+      "pipelineId": "statusupdate-pipeline"
+    },
+    {
+      "name": "share",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(share.*)(:\\d*)?",
+      "pipelineId": "share-pipeline"
+    },
+    {
+      "name": "post",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(post.*)(:\\d*)?",
+      "pipelineId": "post-pipeline"
+    },
+    {
+      "name": "search",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(search.*)(:\\d*)?",
+      "pipelineId": "search-pipeline"
+    },
+    {
+      "name": "sponsorship",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(sponsorship.*)(:\\d*)?",
+      "pipelineId": "sponsorship-pipeline"
+    },
+    {
+      "name": "countryservice",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(countryservice.*)(:\\d*)?",
+      "pipelineId": "countryservice-pipeline"
+    },
+    {
+      "name": "photos",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(photos.*)(:\\d*)?",
+      "pipelineId": "photos-pipeline"
+    },
+    {
+      "name": "aes",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(aes.*)(:\\d*)?",
+      "pipelineId": "aes-pipeline"
+    },
+    {
+      "name": "socialgraph",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(socialgraph.*)(:\\d*)?",
+      "pipelineId": "socialgraph-pipeline"
+    },
+    {
+      "name": "pps",
+      "verb": "ALL",
+      "endpoint": "(http|https)(:\/\/)(pps.*)(:\\d*)?",
+      "pipelineId": "pps-pipeline"
+    }
+  ],
+  "pipelines": [
+    {
+      "name": "default-api-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "default-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "note-api-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-rate-limiting-policy",
+        "default-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "local-protected-resource-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-rate-limiting-policy",
+        "local-protected-resource-proxy-policy"
+      ]
+    },
+    {
+      "name": "idp-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "idp-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "groups-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "videos-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "likes-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "upm-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "blogpost-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "fss-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "audio",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "pages-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "comment-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "statusupdate-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "share-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "post-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "search-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "uas-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "sponsorship-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "countryservice-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "photos-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "aes-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "socialgraph-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    },
+    {
+      "name": "pps-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "default-auth-policy",
+        "default-rate-limiting-policy",
+        "groups-api-proxy-policy"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "name": "default-metrics-policy",
+      "type": "metrics",
+      "phase": "initial:before"
+    },
+    {
+      "name": "default-auth-policy",
+      "type": "auth",
+      "phase": "auth",
+      "scopes": [],
+      "trusted_clients": ["useraccount", "qa", "rweb", "android", "win-mobile", "search", "socialgraph", "analytics", "audit", "upm", "statusupdate", "groups", "aes", "likes", "post", "comment", "blogpost", "blackberry7", "ios-mobile"],
+      "allowed_paths": ["/client/token/renew", "/oauth/client/register", "/", "/vcap_application", "/login/facebook/callback"]
+    },
+    {
+      "name": "default-rate-limiting-policy",
+      "type": "rateLimiting",
+      "phase": "routes:after",
+      "limit": 100,
+      "interval": 60000,
+      "keys": {
+        "app": {
+          "template": "app-${app.id}",
+          "limit": 1000
+        },
+        "ip": 500,
+        "url": {
+          "template": "url-${urlPaths[0]}/${urlPaths[1]}",
+          "limit": 1000
+        },
+        "user": {
+          "template": "user-${user.id}",
+          "limit": 1000
+        },
+        "app,user": {
+          "template": "app-${app.id}-user-${user.id}",
+          "limit": 1000
+        }
+      }
+    },
+    {
+      "name": "default-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://localhost:3002/api/$1"
+    },
+    {
+      "name": "local-protected-resource-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://localhost:3000/protected/$1"
+    },
+    {
+      "name": "idp-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://idp.apps.yookore.net/$1"
+    },
+    {
+      "name": "groups-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://groups.apps.yookore.net/$1"
+    },
+    {
+      "name": "videos-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://videos.apps.yookore.net/$1"
+    },
+    {
+      "name": "likes-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://likes.apps.yookore.net/$1"
+    },
+    {
+      "name": "upm-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://upm.apps.yookore.net/$1"
+    },
+    {
+      "name": "blogpost-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://blogpost.apps.yookore.net/$1"
+    },
+    {
+      "name": "fss-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://fss.apps.yookore.net/$1"
+    },
+    {
+      "name": "audio-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://audio.apps.yookore.net/$1"
+    },
+    {
+      "name": "pages-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://pages.apps.yookore.net/$1"
+    },
+    {
+      "name": "comment-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://comment.apps.yookore.net/$1"
+    },
+    {
+      "name": "statusupdate-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://statusupdate.apps.yookore.net/$1"
+    },
+    {
+      "name": "share-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://share.apps.yookore.net/$1"
+    },
+    {
+      "name": "post-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://post.apps.yookore.net/$1"
+    },
+    {
+      "name": "search-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://search.apps.yookore.net/$1"
+    },
+    {
+      "name": "uas-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://uas.apps.yookore.net/$1"
+    },
+    {
+      "name": "sponsorship-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://sponsorship.apps.yookore.net/$1"
+    },
+    {
+      "name": "countryservice-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://countryservice.apps.yookore.net/$1"
+    },
+    {
+      "name": "photos-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://photos.apps.yookore.net/$1"
+    },
+    {
+      "name": "aes-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://aes.apps.yookore.net/$1"
+    },
+    {
+      "name": "socialgraph-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://socialgraph.apps.yookore.net/$1"
+    },
+    {
+      "name": "pps-api-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://pps.apps.yookore.net/$1"
+    }
+  ]
+}
