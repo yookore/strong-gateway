@@ -13,6 +13,12 @@
       "pipelineId": "local-protected-resource-pipeline"
     },
     {
+      "name": "uas-local",
+      "verb": "ALL",
+      "endpoint": "^/authlocal/v1/(.*)$",
+      "pipelineId": "uas-local-pipeline"
+    },
+    {
       "name": "note-api",
       "endpoint": "/api/notes",
       "pipelineId": "note-api-pipeline"
@@ -20,127 +26,127 @@
     {
       "name": "idp",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(idp.*)(:\\d*)?",
+      "endpoint": "^/idp/(.*)$",
       "pipelineId": "idp-pipeline"
     },
     {
       "name": "uas",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(idp.*)(:\\d*)?",
+      "endpoint": "^/auth/v1/(.*)$",
       "pipelineId": "uas-pipeline"
     },
     {
       "name": "groups",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(groups.*)(:\\d*)?",
+      "endpoint": "^/groups/(.*)$",
       "pipelineId": "groups-pipeline"
     },
     {
       "name": "videos",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(videos.*)(:\\d*)?",
+      "endpoint": "^/videos/(.*)$",
       "pipelineId": "videos-pipeline"
     },
     {
       "name": "likes",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(likes.*)(:\\d*)?",
+      "endpoint": "^/likes/(.*)$",
       "pipelineId": "likes-pipeline"
     },
     {
       "name": "upm",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(upm.*)(:\\d*)?",
+      "endpoint": "^/upm/(.*)$",
       "pipelineId": "upm-pipeline"
     },
     {
       "name": "blogpost",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(blogpost.*)(:\\d*)?",
+      "endpoint": "^/blog/(.*)$",
       "pipelineId": "blogpost-pipeline"
     },
     {
       "name": "fss",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(fss.*)(:\\d*)?",
+      "endpoint": "^/fss/(.*)$",
       "pipelineId": "fss-pipeline"
     },
     {
       "name": "audio",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(audio.*)(:\\d*)?",
+      "endpoint": "^/audio/(.*)$",
       "pipelineId": "audio-pipeline"
     },
     {
       "name": "pages",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(pages.*)(:\\d*)?",
+      "endpoint": "^/pages/(.*)$",
       "pipelineId": "pages-pipeline"
     },
     {
       "name": "comment",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(comment.*)(:\\d*)?",
+      "endpoint": "^/comment/(.*)$",
       "pipelineId": "comment-pipeline"
     },
     {
       "name": "statusupdate",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(statusupdate.*)(:\\d*)?",
+      "endpoint": "^/statusupdate/(.*)$",
       "pipelineId": "statusupdate-pipeline"
     },
     {
       "name": "share",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(share.*)(:\\d*)?",
+      "endpoint": "^/share/(.*)$",
       "pipelineId": "share-pipeline"
     },
     {
       "name": "post",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(post.*)(:\\d*)?",
+      "endpoint": "^/post/(.*)$",
       "pipelineId": "post-pipeline"
     },
     {
       "name": "search",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(search.*)(:\\d*)?",
+      "endpoint": "^/search/(.*)$",
       "pipelineId": "search-pipeline"
     },
     {
       "name": "sponsorship",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(sponsorship.*)(:\\d*)?",
+      "endpoint": "^/sponsorship/(.*)$",
       "pipelineId": "sponsorship-pipeline"
     },
     {
       "name": "countryservice",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(countryservice.*)(:\\d*)?",
+      "endpoint": "^/geo/(.*)$",
       "pipelineId": "countryservice-pipeline"
     },
     {
       "name": "photos",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(photos.*)(:\\d*)?",
+      "endpoint": "^/photos/(.*)$",
       "pipelineId": "photos-pipeline"
     },
     {
       "name": "aes",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(aes.*)(:\\d*)?",
+      "endpoint": "^/aes/(.*)$",
       "pipelineId": "aes-pipeline"
     },
     {
       "name": "socialgraph",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(socialgraph.*)(:\\d*)?",
+      "endpoint": "^/graph/(.*)$",
       "pipelineId": "socialgraph-pipeline"
     },
     {
       "name": "pps",
       "verb": "ALL",
-      "endpoint": "(http|https)(:\/\/)(pps.*)(:\\d*)?",
+      "endpoint": "^/pps/(.*)$",
       "pipelineId": "pps-pipeline"
     }
   ],
@@ -171,6 +177,15 @@
       ]
     },
     {
+      "name": "uas-local-pipeline",
+      "policyIds": [
+        "default-metrics-policy",
+        "uas-auth-policy",
+        "default-rate-limiting-policy",
+        "uas-local-proxy-policy"
+      ]
+    },
+    {
       "name": "idp-pipeline",
       "policyIds": [
         "default-metrics-policy",
@@ -194,7 +209,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "videos-api-proxy-policy"
       ]
     },
     {
@@ -203,7 +218,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "likes-api-proxy-policy"
       ]
     },
     {
@@ -212,7 +227,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "upm-api-proxy-policy"
       ]
     },
     {
@@ -221,7 +236,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "blogpost-api-proxy-policy"
       ]
     },
     {
@@ -230,7 +245,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "fss-api-proxy-policy"
       ]
     },
     {
@@ -239,7 +254,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "audio-api-proxy-policy"
       ]
     },
     {
@@ -248,7 +263,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "pages-api-proxy-policy"
       ]
     },
     {
@@ -257,7 +272,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "comment-api-proxy-policy"
       ]
     },
     {
@@ -266,7 +281,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "statusupdate-api-proxy-policy"
       ]
     },
     {
@@ -275,7 +290,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "share-api-proxy-policy"
       ]
     },
     {
@@ -284,7 +299,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "post-api-proxy-policy"
       ]
     },
     {
@@ -293,16 +308,16 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "search-api-proxy-policy"
       ]
     },
     {
       "name": "uas-pipeline",
       "policyIds": [
         "default-metrics-policy",
-        "default-auth-policy",
+        "uas-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "uas-api-proxy-policy"
       ]
     },
     {
@@ -311,7 +326,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "sponsorship-api-proxy-policy"
       ]
     },
     {
@@ -320,7 +335,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "countryservice-api-proxy-policy"
       ]
     },
     {
@@ -329,7 +344,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "photos-api-proxy-policy"
       ]
     },
     {
@@ -338,7 +353,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "aes-api-proxy-policy"
       ]
     },
     {
@@ -347,7 +362,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "socialgraph-api-proxy-policy"
       ]
     },
     {
@@ -356,7 +371,7 @@
         "default-metrics-policy",
         "default-auth-policy",
         "default-rate-limiting-policy",
-        "groups-api-proxy-policy"
+        "pps-api-proxy-policy"
       ]
     }
   ],
@@ -368,6 +383,12 @@
     },
     {
       "name": "default-auth-policy",
+      "type": "auth",
+      "phase": "auth",
+      "scopes": []
+    },
+    {
+      "name": "uas-auth-policy",
       "type": "auth",
       "phase": "auth",
       "scopes": [],
@@ -410,7 +431,13 @@
       "name": "local-protected-resource-proxy-policy",
       "type": "reverseProxy",
       "phase": "proxies",
-      "targetURL": "http://localhost:3000/protected/$1"
+      "targetURL": "http://localhost:3002/protected/$1"
+    },
+    {
+      "name": "uas-local-proxy-policy",
+      "type": "reverseProxy",
+      "phase": "proxies",
+      "targetURL": "http://localhost:3000/v1/$1"
     },
     {
       "name": "idp-api-proxy-policy",
@@ -500,7 +527,7 @@
       "name": "uas-api-proxy-policy",
       "type": "reverseProxy",
       "phase": "proxies",
-      "targetURL": "http://uas.apps.yookore.net/$1"
+      "targetURL": "http://uas.apps.yookore.net/v1/$1"
     },
     {
       "name": "sponsorship-api-proxy-policy",
